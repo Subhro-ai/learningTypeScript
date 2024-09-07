@@ -1,0 +1,12 @@
+<p *ngIf="gameOn"> {{timeLeft}} </p>
+
+<div class="container" *ngIf="gameOn">
+    <h1> {{counter}} </h1>
+</div>
+
+<div class="target" [ngStyle]=" targetStyle" (click)="onClick()" *ngIf="gameOn"></div>
+
+<div class="end" *ngIf="!gameOn">
+    <h1 >GAME OVER !</h1>
+    <p>Score : {{counter}}</p>
+</div>
