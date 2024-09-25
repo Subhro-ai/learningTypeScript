@@ -7,7 +7,7 @@
             border-radius: 50%;
 }
 
-.container {
+.container, .end {
     height: 100%;
     margin: 0;
     display: grid;
@@ -22,8 +22,14 @@ h1 {
     
 }
 
-p {
-    position: absolute;
+.timer {
+    /* position: absolute; */
+    margin-left: 50%;
+    left: 50%;
+    color: white;
+}
+
+.final {
     left: 50%;
     color: white;
 }

@@ -1,4 +1,4 @@
-<p *ngIf="gameOn"> {{timeLeft}} </p>
+<p class="timer" *ngIf="gameOn"> {{timeLeft}} </p>
 
 <div class="container" *ngIf="gameOn">
     <h1> {{counter}} </h1>
@@ -8,5 +8,5 @@
 
 <div class="end" *ngIf="!gameOn">
     <h1 >GAME OVER !</h1>
-    <p>Score : {{counter}}</p>
+    <p class="final">Score : {{counter}}</p>
 </div>
