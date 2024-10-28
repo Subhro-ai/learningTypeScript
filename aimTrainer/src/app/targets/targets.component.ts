@@ -63,6 +63,6 @@ export class TargetsComponent {
   onClick() {
     this.changePos();
     this.counter += 1;
-    console.log("on click WORKS");
+    // console.log("on click WORKS");
   }
 }
