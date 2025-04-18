@@ -1,12 +1,20 @@
-<p class="timer" *ngIf="gameOn"> {{timeLeft}} </p>
+<div class="wrapper">
 
-<div class="container" *ngIf="gameOn">
-    <h1> {{counter}} </h1>
-</div>
-
-<div class="target" [ngStyle]=" targetStyle" (click)="onClick()" *ngIf="gameOn"></div>
-
-<div class="end" *ngIf="!gameOn">
-    <h1 >GAME OVER !</h1>
-    <p class="final">Score : {{counter}}</p>
+    <p class="timer" *ngIf="gameOn"> {{timeLeft}} </p>
+    
+    <div class="container" *ngIf="gameOn">
+        <h1> {{counter}} </h1>
+    </div>
+    
+    <div class="target" [ngStyle]=" targetStyle" (click)="onClick()" *ngIf="gameOn"></div>
+    
+    <div class="end" *ngIf="!gameOn">
+        <h1 >GAME OVER !</h1>
+        <p class="final">Score : {{counter}}</p>
+        <p class="final">HighScore : {{highScore}}</p>
+        <div class="button-container">
+            <button class="btn" (click)="startGame()">Play Again</button>
+            <button class="btn" (click)="goToHome()">Home</button>
+        </div>
+    </div>
 </div>

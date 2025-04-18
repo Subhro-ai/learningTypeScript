@@ -1,6 +1,6 @@
 import { Component , OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';  
-import { timer } from 'rxjs';
 @Component({
   selector: 'app-targets',
   standalone: true,
@@ -9,13 +9,21 @@ import { timer } from 'rxjs';
   styleUrl: './targets.component.css'
 })
 export class TargetsComponent {
+  constructor(private router: Router) {}
+  highScore: number = 0;
+
   timeLeft: number = 10;
   interval: any;
   gameOn : boolean = true;
   
 
   ngOnInit(): void {
+    const savedHighScore = localStorage.getItem('aimTrainerHighScore');
+  if (savedHighScore) {
+    this.highScore = parseInt(savedHighScore, 10);
+  }
     this.startTimer();
+    this.changePos();
   }
   ngDoCheck(): void {
     console.log('Change detection running');
@@ -26,19 +34,24 @@ export class TargetsComponent {
   
   gameEnd() {
     this.gameOn = true;
+    if (this.counter > this.highScore) {
+      this.highScore = this.counter;
+      localStorage.setItem('aimTrainerHighScore', this.highScore.toString());
+    }
   }
 
   startTimer() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
         clearInterval(this.interval);
+        this.gameEnd();
       }
     }, 1000);
-    if (this.timeLeft == 0) {
-      this.gameEnd();
-    }
   }
   counter: number = 0;
   x : string = '100px';
@@ -63,6 +76,21 @@ export class TargetsComponent {
   onClick() {
     this.changePos();
     this.counter += 1;
-    // console.log("on click WORKS");
   }
+  startGame(): void {
+    this.timeLeft = 10; // or whatever time you want
+    this.counter = 0;
+    this.gameOn = true;
+    this.changePos(); // to reposition the target immediately
+    this.startTimer();
+    console.log("START GAME WORKS");
+  }
+  
+  goToHome() : void {
+    this.router.navigate(['/']);
+    console.log("GO TO HOME WORKS");
+   }
 }
+
+
+

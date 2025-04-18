@@ -6,12 +6,20 @@
             background-color: rgb(255, 255, 255);
             border-radius: 50%;
 }
-
+.timer-container{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    margin: 0;
+}
 .container, .end {
     height: 100%;
     margin: 0;
-    display: grid;
-    place-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h1 {
@@ -19,17 +27,67 @@ h1 {
     font-size: 200px;
     padding-top: 100px;
     color: rgb(127, 127, 127);
-    
+    margin-bottom: 50px;
 }
+/* From Uiverse.io by ZacharyCrespin */ 
+button {
+    margin-right: 40px;
+    transition: all 0.5s;
+    font-size: 17px;
+    padding: 1ch 2ch;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    box-shadow:
+      2px 2px 0px hsl(0, 0%, 90%),
+      4px 4px 0px hsl(0, 0%, 80%),
+      6px 6px 0px hsl(0, 0%, 70%),
+      8px 8px 0px hsl(0, 0%, 60%),
+      10px 10px 0px hsl(0, 0%, 50%),
+      12px 12px 0px hsl(0, 0%, 40%),
+      14px 14px 0px hsl(0, 0%, 30%),
+      16px 16px 0px hsl(0, 0%, 20%),
+      18px 18px 0px hsl(0, 0%, 10%);
+  }
+  
+  button:hover {
+    background-color: hsl(0, 0%, 50%);
+    color: #fff;
+    box-shadow: none;
+  }
+  
 
 .timer {
-    /* position: absolute; */
-    margin-left: 50%;
-    left: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5vw;
+    margin: 0;
+    position: absolute;
+    top: 0%;
     color: white;
 }
+
 
 .final {
     left: 50%;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+    margin: 0px 0px 10px 0px;
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
