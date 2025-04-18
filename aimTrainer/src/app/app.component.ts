@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TargetsComponent } from "./targets/targets.component";
+import { GameComponent } from "./game/game.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TargetsComponent],
+  imports: [RouterOutlet, GameComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'aimTrainer';
+  title = 'Aim Trainer';
 }
